@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AdmissionTestApplication<admissionTest>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.sprint3.admission_test.AdmissionTestApplication",
+            "projectName": "admissionTest",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
