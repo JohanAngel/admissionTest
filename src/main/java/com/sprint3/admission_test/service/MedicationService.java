@@ -1,5 +1,8 @@
 package com.sprint3.admission_test.service;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sprint3.admission_test.domain.model.Category;
@@ -9,12 +12,12 @@ import com.sprint3.admission_test.infrastructure.adapter.out.persistence.jpaRepo
 
 @Service
 public class MedicationService {
+
     @Autowired
     private CategoryJpaRepository categoryJpaRepository;
 
     @Autowired
     private MedicationJpaRepository medicationJpaRepository; 
-
 
      // Método para agregar un nuevo medicamento
     public Medication addMedication(Medication newMedication) {
@@ -33,8 +36,10 @@ public class MedicationService {
         // Guardar el medicamento
         return medicationJpaRepository.save(newMedication);
     }
-    // public Category findCategoryById(Long id) {
-    //     return categoryRepo.findById(id)
-    //             .orElseThrow(() -> new RuntimeException("Category not found"));
-    // }
+
+     // Método para consultar medicamentos por categoría y fecha de expiración
+    public List<Medication> getMedicationsByCategoryAndExpirationDateAfter(Category category, LocalDate expirationDate) {
+        return medicationJpaRepository.findByCategoryAndExpirationDateAfter(category, expirationDate);
+    }
+
 }
