@@ -19,4 +19,8 @@ public class MedicationUseCaseImpl implements IMedicationUseCase {
                 "Could not find medication with ID: " + id
         ));
     }
+
+    public Medication addMedication(Medication medication) {
+        return medicationRepository.save(medication); // Llama al repositorio para guardar el medicamento
+    }
 }
