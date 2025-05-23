@@ -8,6 +8,8 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 import com.sprint3.admission_test.domain.model.Category;
 
 public interface MedicationJpaRepository extends JpaRepository<Medication, Long> {
@@ -21,5 +23,11 @@ public interface MedicationJpaRepository extends JpaRepository<Medication, Long>
     // Consulta personalizada para encontrar medicamentos de una categoría que caducarán después de una fecha
     @Query("SELECT m FROM Medication m WHERE m.category = :category AND m.expirationDate > :expirationDate")
     List<Medication> findByCategoryAndExpirationDateAfter(Category category, LocalDate expirationDate);
+
+    @Query("SELECT m FROM Medication m WHERE m.category.name = :categoryName AND m.expirationDate > :expirationDate")
+    List<Medication> getMedicationsByCategoryAndExpirationDateAfter(
+            @Param("categoryName") String categoryName,
+            @Param("expirationDate") LocalDate expirationDate
+    );
 
 }
