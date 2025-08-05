@@ -1,0 +1,12 @@
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\AdmissionTestApplication.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\application\ports\in\IMedicationUseCase.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\application\ports\out\IMedicationRepository.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\application\useCases\MedicationUseCaseImpl.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\domain\exceptions\NotFoundException.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\domain\model\Category.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\domain\model\Medication.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\infrastructure\adapter\in\web\MedicationController.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\infrastructure\adapter\out\persistence\jpaRepository\CategoryJpaRepository.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\infrastructure\adapter\out\persistence\jpaRepository\MedicationJpaRepository.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\infrastructure\adapter\out\persistence\repositoryImpl\MedicationRepositoryImpl.java
+C:\Users\Administrator\Documents\admissionTest\src\main\java\com\sprint3\admission_test\infrastructure\error\GlobalExceptionHandler.java
