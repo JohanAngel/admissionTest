@@ -4,7 +4,9 @@ import com.sprint3.admission_test.application.ports.in.IMedicationUseCase;
 import com.sprint3.admission_test.application.ports.out.IMedicationRepository;
 import com.sprint3.admission_test.domain.Dto.MedicationDto;
 import com.sprint3.admission_test.domain.exceptions.NotFoundException;
+import com.sprint3.admission_test.domain.model.Category;
 import com.sprint3.admission_test.domain.model.Medication;
+import com.sprint3.admission_test.infrastructure.adapter.out.persistence.jpaRepository.CategoryJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,7 @@ public class MedicationUseCaseImpl implements IMedicationUseCase {
     private IMedicationRepository medicationRepository;
 
     @Autowired
-    private ICate;
+    private CategoryJpaRepository categoryJpaRepository;
 
 
     @Override
@@ -45,14 +47,19 @@ public class MedicationUseCaseImpl implements IMedicationUseCase {
         if(find.isPresent()){
             throw new Exception("Medicine already exists");
         }else {
+            Optional<Category> category = categoryJpaRepository.findCategoryByName(medicationDto.getCategory_name());
+            if(category.isPresent()){
+                Medication medication = new Medication();
+                medication.setName(medicationDto.getName());
+                medication.setPrice(medicationDto.getPrice());
+                medication.setDescription(medicationDto.getDescription());
+                medication.setCategory(category.get());
 
-            Medication medication = new Medication();
-            medication.setName(medicationDto.getName());
-            medication.setPrice(medicationDto.getPrice());
-            medication.setDescription(medicationDto.getDescription());
-            medication.getCategory()
+                return medicationRepository.create(medication);
+            }else {
+                throw new Exception("Category not exists");
+            }
 
-            return medicationRepository.create(medication);
         }
     }
 }
